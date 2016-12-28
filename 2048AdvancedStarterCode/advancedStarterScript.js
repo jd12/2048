@@ -1,63 +1,66 @@
-function runGame(){
 
-	//temporary function to demonstrate interaction between html and javascript
-	var board = [[2,4,8,16],[32,64,128,512],[1024,0,0,0],[0,0,0,0]];
+//2D array initialized with sample values. To get a blank board initialize all the values to zero
+var board = [[2,4,8,16],[32,64,128,512],[1024,0,0,0],[0,0,0,0]];
+
+
+
+//As soon as webpage loads run these two functions
+$(document).ready(function(){
+	printBoard();
+	console.log("Loaded webpage"); //how you do print statements in javascript
+});
+
+function printBoard(){
+
 	for(var i = 0; i < 4; i++){
 		for(var j = 0; j < 4; j++){
 			var boardID = "r"+i+"c"+j;
+			//if the tile is not zero, put it on the board 
 			if(board[i][j]!=0){
 				document.getElementById(boardID).innerHTML = board[i][j];
 			}
-		}
-	}
-
-	//temporary function to demonstrate interaction between css and javascript
-	//you can implement a case switch here, if you want to you can, if not don't worry about it
-	//they're pretty intuitive to understand. 
-	for(var i = 0; i < 4; i++){
-		for(var j = 0; j < 4; j++){
-			var boardID = "r"+i+"c"+j;
-			if(board[i][j] == 2){
-				document.getElementById(boardID).style.background = "#f0e5da";
-			}
-			else if(board[i][j] == 4){
-				document.getElementById(boardID).style.background = "#ede2c8";
-			}
-			else if(board[i][j] == 8){
-				document.getElementById(boardID).style.background = "#feb578";
-			}
-			else if(board[i][j] == 16){
-				document.getElementById(boardID).style.background = "#ff9962";
-			}
-			else if(board[i][j] == 32){
-				document.getElementById(boardID).style.background = "#ff8060";
-			}
-			else if(board[i][j] == 64){
-				document.getElementById(boardID).style.background = "#ff613c";
-			}
-			else if(board[i][j] == 128){
-				document.getElementById(boardID).style.background = "#efd26d";
-			}
-			else if(board[i][j] == 256){
-				document.getElementById(boardID).style.background = "#efd15c";
-			}
-			else if(board[i][j] == 512){
-				document.getElementById(boardID).style.background = "#efcd4a";
-			}
-			else if(board[i][j] == 1024){
-				document.getElementById(boardID).style.background = "#f0ca36";
-			}
-			else if(board[i][j] == 2048){
-				document.getElementById(boardID).style.background = "#ccc0b3";
-			}
-			else{
-
+			//Change the different number tiles to different colors
+			switch(board[i][j]){
+				case 2:
+					document.getElementById(boardID).style.background = "#f0e5da";
+					break;//similar to an else if. Makes sure none of the other cases executes if this one does
+				case 4:
+					document.getElementById(boardID).style.background = "#ede2c8";
+					break;
+				case 8:
+					document.getElementById(boardID).style.background = "#feb578";
+					break;
+				case 16:
+					document.getElementById(boardID).style.background = "#ff9962";
+					break;
+				case 32:
+					document.getElementById(boardID).style.background = "#ff8060";
+					break;
+				case 64:
+					document.getElementById(boardID).style.background = "#ff613c";
+					break;
+				case 128:
+					document.getElementById(boardID).style.background = "#efd26d";
+					break;
+				case 256:
+					document.getElementById(boardID).style.background = "#efd15c";
+					break;
+				case 512:
+					document.getElementById(boardID).style.background = "#efcd4a";
+					break;
+				case 1024:
+					document.getElementById(boardID).style.background = "#f0ca36";
+					break;
+				case 2048:
+					document.getElementById(boardID).style.background = "#ccc0b3";
+					break;
+				default:
+					//similar to the else statement. If none of the other cases execute, this statement will execute
 			}
 		}
 	}
 }
-
 //show students an ascii conversion tool. 
-function printKey(e){
+document.onkeydown = function(e){
 	console.log(e.keyCode);
-}
+};
