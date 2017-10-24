@@ -15,9 +15,13 @@ function printBoard(){
 	for(var i = 0; i < 4; i++){
 		for(var j = 0; j < 4; j++){
 			var boardID = "r"+i+"c"+j;
-			//if the tile is not zero, put it on the board 
+			// if the tile is not zero, put it on the board 
+			// else set it to be empty
 			if(board[i][j]!=0){
 				document.getElementById(boardID).innerHTML = board[i][j];
+			}
+			else {
+				document.getElementById(boardID).innerHTML = "";
 			}
 			//Change the different number tiles to different colors
 			switch(board[i][j]){
@@ -56,6 +60,9 @@ function printBoard(){
 					break;
 				default:
 					//similar to the else statement. If none of the other cases execute, this statement will execute
+					document.getElementById(boardID).style.background = "rgba(238, 228, 218, 0.35)";
+					break;
+
 			}
 		}
 	}
