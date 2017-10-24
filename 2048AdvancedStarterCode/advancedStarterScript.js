@@ -60,6 +60,7 @@ function printBoard(){
 					break;
 				default:
 					//similar to the else statement. If none of the other cases execute, this statement will execute
+					// in our game we'll default to the grey background
 					document.getElementById(boardID).style.background = "rgba(238, 228, 218, 0.35)";
 					break;
 
